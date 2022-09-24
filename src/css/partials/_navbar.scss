@@ -8,8 +8,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
+    background-color: $white;
     padding: 0 50px;
+    z-index: 1;
 
     .navbar-desktop-links {
         display: none;
@@ -82,6 +83,7 @@
                     background: linear-gradient(to right, $pink, $pink, $orange);
                     color: $white;
                     transform: translateY(-5px);
+                    outline: none;
                 }
             }
        }

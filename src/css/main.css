@@ -30,8 +30,9 @@ table {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: #ffffff;
   padding: 0 50px;
+  z-index: 1;
   /* Desktop */
 }
 .navbar .navbar-desktop-links {
@@ -99,5 +100,132 @@ table {
     background: linear-gradient(to right, #ED1872, #ED1872, #feb555);
     color: #ffffff;
     transform: translateY(-5px);
+    outline: none;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: url(../../../assets/img/mobile-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+}
+.content .left, .content .right {
+  position: relative;
+  width: 100%;
+}
+.content .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 162px;
+  text-align: center;
+  padding: 0 50px;
+}
+.content .left .title {
+  font-size: 40px;
+  margin: 30px 0;
+  text-align: center;
+  color: #9F1452;
+}
+.content .left .description {
+  font-size: 14px;
+  color: #959595;
+  line-height: 1.5;
+}
+.content .left .buttons-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 100px;
+}
+.content .left .buttons-container button {
+  position: relative;
+  width: 70%;
+  margin: 0 100px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 40px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.content .left .buttons-container .start-btn {
+  background: linear-gradient(to right, #ED1872, #ED1872, #ED1872, #feb555);
+  color: #ffffff;
+}
+.content .left .buttons-container .watch-btn {
+  background-color: #ffffff;
+  color: #ED1872;
+  outline: 1px solid #9F1452;
+}
+@media screen and (min-width: 1100px) {
+  .content {
+    background: url(../../../assets/img/desktop-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content .left, .content .right {
+    flex: 1;
+    width: 100%;
+  }
+  .content .left {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 100px;
+    margin: 0;
+    text-align: left;
+  }
+  .content .left .title {
+    font-size: 70px;
+  }
+  .content .left .description {
+    font-size: 12px;
+    line-height: 2;
+  }
+  .content .left .buttons-container {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: inline-block;
+    margin: 50px 0;
+  }
+  .content .left .buttons-container button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 20px 0 0;
+    padding: 15px 45px;
+    font-size: 16px;
+    outline: none;
+  }
+  .content .left .buttons-container .start-btn {
+    transition: all 0.3s;
+  }
+  .content .left .buttons-container .start-btn:hover {
+    background: #ffffff;
+    color: #ED1872;
+    box-shadow: 0px 10px 10px #dfdfdf;
+  }
+  .content .left .buttons-container .watch-btn {
+    transition: all 0.3s;
+  }
+  .content .left .buttons-container .watch-btn:hover {
+    box-shadow: 0px 10px 10px #dfdfdf;
+    outline: none;
   }
 }/*# sourceMappingURL=main.css.map */
