@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  line-height: 1;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: none;
+}
+
+.navbar {
+  position: relative;
+  width: 100vw;
+  height: 112px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 0 50px;
+  /* Desktop */
+}
+.navbar .navbar-desktop-links {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding: 0 100px;
+    height: 150px;
+  }
+  .navbar .navbar-mobile-cheese {
+    display: none;
+  }
+  .navbar .navbar-desktop-links {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+  }
+  .navbar .navbar-desktop-links .desktop-link,
+.navbar .navbar-desktop-links .desktop-btn-login {
+    position: relative;
+    margin-left: 40px;
+    color: #959595;
+    font-size: 16px;
+  }
+  .navbar .navbar-desktop-links .desktop-link {
+    transition: color 0.3s, background 0.3s;
+  }
+  .navbar .navbar-desktop-links .desktop-link::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0px;
+    height: 2px;
+    background-color: #ED1872;
+    transition: width 0.3s;
+  }
+  .navbar .navbar-desktop-links .desktop-link:hover {
+    color: #ED1872;
+    background: linear-gradient(to right, #ED1872, #feb555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .navbar .navbar-desktop-links .desktop-link:hover::after {
+    width: 100%;
+    background: linear-gradient(to right, #ED1872, #feb555);
+  }
+  .navbar .navbar-desktop-links .desktop-btn-login {
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 12px 45px;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    outline: 1.5px solid #ED1872;
+    transition: background 0.2s, color 0.3s, transform 0.2s;
+  }
+  .navbar .navbar-desktop-links .desktop-btn-login:hover {
+    background: linear-gradient(to right, #ED1872, #ED1872, #feb555);
+    color: #ffffff;
+    transform: translateY(-5px);
+  }
+}/*# sourceMappingURL=main.css.map */
