@@ -1,8 +1,13 @@
+@font-face {
+  font-family: Urbanist;
+  src: url(../../../assets/font/Urbanist-VariableFont_wght.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: inherit;
+  font-family: Urbanist;
+  font-weight: 600;
 }
 
 ol, ul {
@@ -22,6 +27,29 @@ table {
   border-spacing: none;
 }
 
+@-webkit-keyframes bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
 .navbar {
   position: relative;
   width: 100vw;
@@ -32,13 +60,16 @@ table {
   align-items: center;
   background-color: #ffffff;
   padding: 0 50px;
-  z-index: 1;
+  z-index: 2;
   /* Desktop */
 }
 .navbar .navbar-desktop-links {
   display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1100px) {
+  .navbar {
+    background-color: transparent;
+  }
   .navbar {
     padding: 0 100px;
     height: 150px;
@@ -104,18 +135,32 @@ table {
   }
 }
 
+@keyframes bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
 .content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 1;
   background: url(../../../assets/img/mobile-bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
+  overflow-y: auto;
+  /* Left side */
+  /* Right side */
 }
 .content .left, .content .right {
   position: relative;
@@ -126,18 +171,18 @@ table {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 162px;
   text-align: center;
   padding: 0 50px;
+  height: 100vh;
 }
 .content .left .title {
-  font-size: 40px;
-  margin: 30px 0;
+  font-size: 35px;
+  margin: 30px 0 30px 0px;
   text-align: center;
   color: #9F1452;
 }
 .content .left .description {
-  font-size: 14px;
+  font-size: 10px;
   color: #959595;
   line-height: 1.5;
 }
@@ -156,7 +201,7 @@ table {
   border: none;
   border-radius: 10px;
   padding: 12px 40px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   font-size: 14px;
 }
 .content .left .buttons-container .start-btn {
@@ -167,6 +212,83 @@ table {
   background-color: #ffffff;
   color: #ED1872;
   outline: 1px solid #9F1452;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .left .buttons-container .watch-btn .icon {
+  margin: 0 8px 0 0;
+}
+.content .left .img-girl-left {
+  display: none;
+}
+.content .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 50px 0;
+}
+.content .right .img-right-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .right .img-right-container .img-right {
+  position: relative;
+  transform: translateY(-20%);
+  width: 400px;
+  height: 450px;
+  background: url(../../../assets/img/man-portrait.jpg);
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+}
+.content .right .img-right-container .img-right .img-right-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -25px;
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right bottom, #ED1872, #ED1872, #feb555);
+  font-size: 22px;
+  color: #ffffff;
+  outline: 5px solid #ffffff;
+}
+.content .right .img-right-container .img-right .card-left,
+.content .right .img-right-container .img-right .card-right,
+.content .right .img-right-container .img-right .chat-report,
+.content .right .img-right-container .img-right .coming-your-way,
+.content .right .img-right-container .img-right .chart {
+  display: none;
+}
+.content .right .img-girl-right {
+  position: absolute;
+  top: -30px;
+  left: -50px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: url(../../../assets/img/girl-4.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  outline: 4px solid #ffffff;
+  box-shadow: 0px 20px 20px #cacaca;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 1.4s;
+          animation-duration: 1.4s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 @media screen and (min-width: 1100px) {
   .content {
@@ -178,6 +300,8 @@ table {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    /* Left side */
+    /* Right side */
   }
   .content .left, .content .right {
     flex: 1;
@@ -190,8 +314,32 @@ table {
     margin: 0;
     text-align: left;
   }
+  .content .left .img-girl-left {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: url(../../../assets/img/john.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    outline: 4px solid #ffffff;
+    box-shadow: 0px 20px 20px #cacaca;
+    -webkit-animation-name: bounce;
+            animation-name: bounce;
+    -webkit-animation-duration: 1.4s;
+            animation-duration: 1.4s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+  }
   .content .left .title {
     font-size: 70px;
+    text-align: left;
   }
   .content .left .description {
     font-size: 12px;
@@ -201,7 +349,10 @@ table {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     margin: 50px 0;
   }
   .content .left .buttons-container button {
@@ -227,5 +378,218 @@ table {
   .content .left .buttons-container .watch-btn:hover {
     box-shadow: 0px 10px 10px #dfdfdf;
     outline: none;
+  }
+  .content .right {
+    padding: 0;
+  }
+  .content .right .img-right-container .img-right {
+    border-radius: 20px;
+    transform: translateX(-20%) translateY(0);
+  }
+  .content .right .img-right-container .img-right .card-left {
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    left: -115px;
+    width: 150px;
+    height: 200px;
+    background-color: #ffffff;
+    box-shadow: -20px 10px 30px #dfdfdf;
+    border-radius: 10px;
+    -webkit-animation-name: bounce;
+            animation-name: bounce;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-img {
+    position: relative;
+    margin: 15px auto 10px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    outline: 3px solid #dfdfdf;
+    background: url(../../../assets/img/girl-1.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-name {
+    text-align: center;
+    color: #ED1872;
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-post {
+    text-align: center;
+    color: #959595;
+    font-size: 14px;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #f4f4f4;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-buttons * {
+    margin: 20px;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-buttons .phone {
+    color: #feb555;
+  }
+  .content .right .img-right-container .img-right .card-left .card-left-buttons .chat {
+    color: #ED1872;
+  }
+  .content .right .img-right-container .img-right .card-right {
+    display: block;
+    position: absolute;
+    top: -25px;
+    right: -115px;
+    width: 150px;
+    height: 200px;
+    background-color: #ffffff;
+    box-shadow: 30px 10px 30px #dfdfdf;
+    border-radius: 10px;
+    -webkit-animation-name: bounce;
+            animation-name: bounce;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-img {
+    position: relative;
+    margin: 15px auto 10px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    outline: 3px solid #dfdfdf;
+    background: url(../../../assets/img/girl-2.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-name {
+    text-align: center;
+    color: #ED1872;
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-post {
+    text-align: center;
+    color: #959595;
+    font-size: 14px;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #f4f4f4;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-buttons .progress-container {
+    position: relative;
+    width: 60%;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #e2e2e2;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-buttons .progress-container .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #ED1872;
+  }
+  .content .right .img-right-container .img-right .card-right .card-right-buttons .transfer-files {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #959595;
+  }
+  .content .right .img-right-container .img-right .chat-report {
+    opacity: 1;
+    display: block;
+    position: absolute;
+    top: 60%;
+    right: 0;
+    background-color: #ffffff;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 20px 45px 20px 25px;
+    transform: translateX(40%);
+    box-shadow: 10px 0px 20px rgb(214, 214, 214);
+    border-radius: 10px 10px 10px 0px;
+  }
+  .content .right .img-right-container .img-right .chat-report p {
+    color: #959595;
+    font-size: 14px;
+  }
+  .content .right .img-right-container .img-right .coming-your-way {
+    position: absolute;
+    top: 80%;
+    right: -20px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 50px;
+    background-color: #ED1872;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px 20px 20px;
+    border-radius: 10px 10px 0px 10px;
+  }
+  .content .right .img-right-container .img-right .coming-your-way p {
+    color: #ffffff;
+    font-size: 14px;
+  }
+  .content .right .img-right-container .img-right .coming-your-way .coming-img {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url(../../../assets/img/girl-3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    outline: 4px solid #ffffff;
+  }
+  .content .right .img-right-container .img-right .chart {
+    display: block;
+    position: absolute;
+    bottom: -70px;
+    right: -80px;
+    width: 180px;
+    height: 100px;
+    background-color: #ED1872;
+    border-radius: 10px 10px 0px 10px;
+  }
+  .content .right .img-right-container .img-right .chart svg {
+    width: 100%;
+    height: 100%;
   }
 }/*# sourceMappingURL=main.css.map */

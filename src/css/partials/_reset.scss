@@ -1,8 +1,14 @@
+@font-face {
+    font-family: Urbanist;
+    src: url(../../../assets/font/Urbanist-VariableFont_wght.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: inherit;
+    font-family: Urbanist;
+    font-weight: 600;
 }
 
 ol, ul {

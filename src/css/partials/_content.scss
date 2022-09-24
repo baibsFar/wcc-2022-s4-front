@@ -7,36 +7,39 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+    z-index: 1;
     background: url(../../../assets/img/mobile-bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
+    overflow-y: auto;
 
     .left, .right {
         position: relative;
         width: 100%;
     }
 
+    /* Left side */
     .left {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: calc(112px + 50px);
+        // margin-top: calc(112px + 50px);
         text-align: center;
         padding: 0 50px;
+        height: 100vh;
 
         .title {
-            font-size: 40px;
-            margin: 30px 0;
+            font-size: 35px;
+            margin: 30px 0 30px 0px;
             text-align: center;
             color: $purple;
         }
 
         .description {
-            font-size: $text-sm;
+            font-size: 10px;
             color: $gray;
             line-height: 1.5;
         }
@@ -56,7 +59,7 @@
                 border: none;
                 border-radius: 10px;
                 padding: 12px 40px;
-                margin-bottom: 5px;
+                margin-bottom: 15px;
                 font-size: $text-sm;
             }
 
@@ -69,9 +72,92 @@
                 background-color: $white;
                 color: $pink;
                 outline: 1px solid $purple;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .icon {
+                    margin: 0 8px 0 0;
+                }
             }
         }
+
+        .img-girl-left {
+            display: none;
+        }
         
+    }
+
+    /* Right side */
+    .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 50px 0;
+
+        .img-right-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .img-right {
+                position: relative;
+                transform: translateY(-20%);
+                width: 400px;
+                height: 450px;
+                background: url(../../../assets/img/man-portrait.jpg);
+                background-position-x: center;
+                background-position-y: top;
+                background-size: cover;
+
+                .img-right-icon {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    bottom: -25px;
+                    left: calc(50% - 25px);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background: linear-gradient(to right bottom, $pink, $pink, $orange);
+                    font-size: 22px;
+                    color: $white;
+                    outline: 5px solid $white;
+                }
+
+                .card-left,
+                .card-right,
+                .chat-report,
+                .coming-your-way,
+                .chart {
+                    display: none;
+                }
+                
+            }
+        }
+
+        .img-girl-right {
+            position: absolute;
+            top: -30px;
+            left: -50px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: url(../../../assets/img/girl-4.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            outline: 4px solid $white;
+            box-shadow: 0px 20px 20px #cacaca;
+            animation-name: bounce;
+            animation-duration: 1.4s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
     }
 
     @media screen and (min-width: 1100px) {
@@ -89,6 +175,7 @@
             width: 100%;
         }
 
+        /* Left side */
         .left {
             justify-content: center;
             align-items: flex-start;
@@ -96,8 +183,29 @@
             margin: 0;
             text-align: left;
 
+            .img-girl-left {
+                display: block;
+                position: absolute;
+                top: 100px;
+                left: 150px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: url(../../../assets/img/john.jpg);
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                outline: 4px solid $white;
+                box-shadow: 0px 20px 20px #cacaca;
+                animation-name: bounce;
+                animation-duration: 1.4s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+            }
+
             .title {
                 font-size: 70px;
+                text-align: left;
             }
 
             .description {
@@ -107,7 +215,10 @@
 
             .buttons-container {
                 width: fit-content;
-                display: inline-block;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
                 margin: 50px 0;
 
                 button {
@@ -136,6 +247,237 @@
                     }
                 }
             }
+        }
+
+        /* Right side */
+        .right {
+            padding: 0;
+
+            .img-right-container {
+                .img-right {
+                    border-radius: 20px;
+                    transform: translateX(-20%) translateY(0);
+    
+                    .card-left {
+                        display: block;
+                        position: absolute;
+                        bottom: -25px;
+                        left: calc(-150px + 35px);
+                        width: 150px;
+                        height: 200px;
+                        background-color: $white;
+                        box-shadow: -20px 10px 30px #dfdfdf;
+                        border-radius: 10px;
+                        animation-name: bounce;
+                        animation-duration: 1s;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: ease-in-out;
+
+                        .card-left-img {
+                            position: relative;
+                            margin: 15px auto 10px auto;
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            outline: 3px solid #dfdfdf;
+                            background: url(../../../assets/img/girl-1.jpg);
+                            background-position: top;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+
+                        .card-left-name {
+                            text-align: center;
+                            color: $pink;
+                            font-size: $text-base;
+                            margin-bottom: 3px;
+                        }
+
+                        .card-left-post {
+                            text-align: center;
+                            color: $gray;
+                            font-size: $text-sm;
+                        }
+
+                        .card-left-buttons {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-bottom-left-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            background-color: #f4f4f4;
+
+                            * {
+                                margin: 20px;
+                            }
+
+                            .phone {
+                                color: $orange;
+                            }
+
+                            .chat {
+                                color: $pink;
+                            }
+                        }
+                    }
+    
+                    .card-right {
+                        display: block;
+                        position: absolute;
+                        top: -25px;
+                        right: calc(-150px + 35px);
+                        width: 150px;
+                        height: 200px;
+                        background-color: $white;
+                        box-shadow: 30px 10px 30px #dfdfdf;
+                        border-radius: 10px;
+                        animation-name: bounce;
+                        animation-duration: 1.5s;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: ease-in-out;
+
+                        .card-right-img {
+                            position: relative;
+                            margin: 15px auto 10px auto;
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            outline: 3px solid #dfdfdf;
+                            background: url(../../../assets/img/girl-2.jpg);
+                            background-position: top;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+
+                        .card-right-name {
+                            text-align: center;
+                            color: $pink;
+                            font-size: $text-base;
+                            margin-bottom: 3px;
+                        }
+
+                        .card-right-post {
+                            text-align: center;
+                            color: $gray;
+                            font-size: $text-sm;
+                        }
+
+                        .card-right-buttons {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 50px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            border-bottom-left-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                            background-color: #f4f4f4;
+
+                            .progress-container {
+                                position: relative;
+                                width: 60%;
+                                height: 10px;
+                                border-radius: 10px;
+                                background-color: #e2e2e2;
+
+                                .progress {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 60%;
+                                    height: 10px;
+                                    border-radius: 10px;
+                                    background-color: $pink;
+                                }
+                            }
+
+                            .transfer-files {
+                                margin-top: 8px;
+                                font-size: 12px;
+                                color: $gray;
+                            }
+                        }
+                    }
+
+                    .chat-report {
+                        opacity: 1;
+                        display: block;
+                        position: absolute;
+                        top: 60%;
+                        right: 0;
+                        background-color: $white;
+                        width: fit-content;
+                        padding: 20px 45px 20px 25px;
+                        transform: translateX(40%);
+                        box-shadow: 10px 0px 20px rgb(214, 214, 214);
+                        border-radius: 10px 10px 10px 0px;
+
+                        p {
+                            color: $gray;
+                            font-size: $text-sm;
+                        }
+                    }
+
+                    .coming-your-way {
+                        position: absolute;
+                        top: 80%;
+                        right: -20px;
+                        width: fit-content;
+                        height: 50px;
+                        background-color: $pink;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 20px 40px 20px 20px;
+                        border-radius: 10px 10px 0px 10px;
+
+                        p {
+                            color: $white;
+                            font-size: $text-sm;
+                        }
+
+                        .coming-img {
+                            position: absolute;
+                            top: -15px;
+                            right: -15px;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background: url(../../../assets/img/girl-3.jpg);
+                            background-position: center;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            outline: 4px solid $white;
+                        }
+                    }
+
+                    .chart {
+                        display: block;
+                        position: absolute;
+                        bottom: -70px;
+                        right: -80px;
+                        width: 180px;
+                        height: 100px;
+                        background-color: $pink;
+                        border-radius: 10px 10px 0px 10px;
+
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    
+                }
+            }
+            
         }
     }
 }

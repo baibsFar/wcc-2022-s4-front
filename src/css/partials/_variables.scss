@@ -6,3 +6,9 @@ $white: #ffffff;
 
 $text-base: 16px;
 $text-sm: 14px;
+
+@keyframes bounce {
+    0% { transform: translateY(-5px); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
