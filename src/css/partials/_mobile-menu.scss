@@ -1,0 +1,50 @@
+@import './variables';
+
+.mobile-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    z-index: 20;
+    background-color: rgb(255, 255, 255, 0.3);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    transition: height .5s;
+
+    a {
+        width: 80%;
+        // padding: 15px 20px;
+        margin: 5px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        // background-color: $pink;
+        color: $pink;
+        font-size: $text-base;
+        border-radius: 10px;
+        outline: 2px solid $pink;
+
+        * {
+            position: relative;
+            background: linear-gradient(to bottom right, $pink, $pink, $orange);
+            color: $white;
+            width: fit-content;
+            height: 100%;
+            padding: 15px 20px;
+            margin: 0 10px 0 0;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (min-width: 1100px) {
+        display: none;
+    }
+}
